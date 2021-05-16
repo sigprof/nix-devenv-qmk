@@ -1,0 +1,11 @@
+# Shared direnv for `qmk_firmware`.
+#
+# This file is intended to be loaded from `.envrc` inside your `qmk_firmware`
+# directory, using a statement like:
+#
+#     source_env ~/path/to/nix-devenv-qmk/envrc
+#
+# Note that this file itself is **not** named `.envrc`, because it should not
+# be used as a direnv for `nix-devenv-qmk` itself.
+
+use nix
