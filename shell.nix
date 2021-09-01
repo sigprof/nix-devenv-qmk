@@ -35,6 +35,47 @@ let
     "-B${avrlibc}/avr/lib/avr51"
     "-L${avrlibc}/avr/lib/avr51"
   ];
+
+  # Platform definition which explicitly specifies the `arch` and `abi` values
+  # that are needed for GD32VF103 (which is the only RISC-V chip supported in
+  # QMK at the moment).  Without those values GCC assumes that the core
+  # supports hardware floating point, and uses the hard-float ABI when
+  # compiling newlib, then those newlib files cannot be linked with QMK object
+  # files compiled for the soft-float ABI.
+  #
+  riscv32-embedded-rv32imac-ilp32 = {
+    config = "riscv32-none-elf";
+    libc = "newlib";
+    gcc = {
+      arch = "rv32imac";
+      abi = "ilp32";
+      #enableMultilib = true;
+    };
+  };
+
+  # Attempt to enable multilib support in GCC, using the same `enableMultilib`
+  # parameter as https://github.com/NixOS/nixpkgs/pull/111321 (but trying to do
+  # it without patching the GCC packages).  Does not work, because the library
+  # search path is not set properly (the above PR has the same unsolved issue).
+  #
+  #gccMultilibOverlay = final: prev: {
+  #  gccFun = args: prev.gccFun (args // {
+  #    enableMultilib = (args.stdenv or final.stdenv).targetPlatform.gcc.enableMultilib or false;
+  #  });
+  #  wrapCC = cc: prev.wrapCC (cc.override {
+  #    enableMultilib = cc.stdenv.targetPlatform.gcc.enableMultilib or false;
+  #  });
+  #};
+
+  # Replacement for `pkgs.pkgsCross.riscv32-embedded` which uses the custom
+  # platform definition.
+  #
+  riscv32CrossPkgs = import sources.nixpkgs {
+    localSystem = pkgs.stdenv.system;
+    crossSystem = riscv32-embedded-rv32imac-ilp32;
+    #overlays = [ gccMultilibOverlay ];
+  };
+
 in
 mkShell {
   name = "qmk-firmware";
@@ -48,9 +89,9 @@ mkShell {
     ]
     ++ lib.optional arm [ gcc-arm-embedded ]
     ++ lib.optional riscv32 [
-      pkgsCross.riscv32-embedded.buildPackages.binutils
-      pkgsCross.riscv32-embedded.buildPackages.gcc
-      pkgsCross.riscv32-embedded.libcCross
+      riscv32CrossPkgs.buildPackages.binutils
+      riscv32CrossPkgs.buildPackages.gcc
+      riscv32CrossPkgs.libcCross
     ]
     ++ lib.optional teensy [ teensy-loader-cli ];
 
