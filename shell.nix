@@ -1,4 +1,4 @@
-{ avr ? true, arm ? true, teensy ? true }:
+{ avr ? true, arm ? true, riscv32 ? true, teensy ? true }:
 let
   # We specify sources via Niv: use "niv update nixpkgs" to update nixpkgs, for example.
   sources = import ./nix/sources.nix { };
@@ -47,6 +47,11 @@ mkShell {
       avrdude
     ]
     ++ lib.optional arm [ gcc-arm-embedded ]
+    ++ lib.optional riscv32 [
+      pkgsCross.riscv32-embedded.buildPackages.binutils
+      pkgsCross.riscv32-embedded.buildPackages.gcc
+      pkgsCross.riscv32-embedded.libcCross
+    ]
     ++ lib.optional teensy [ teensy-loader-cli ];
 
   AVR_CFLAGS = lib.optional avr avr_incflags;
