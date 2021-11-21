@@ -13,6 +13,10 @@ let
   pythonEnv = poetry2nix.mkPoetryEnv {
     projectDir = ./nix;
     overrides = poetry2nix.overrides.withDefaults (self: super: {
+      importlib-resources = super.importlib-resources.overridePythonAttrs(old: {
+        # Disable the removal of pyproject.toml, required because of setuptools_scm.
+        dontPreferSetupPy = true;
+      });
       qmk = super.qmk.overridePythonAttrs(old: {
         # Allow QMK CLI to run "bin/qmk" as a subprocess (the wrapper changes
         # $PATH and breaks these invocations).
