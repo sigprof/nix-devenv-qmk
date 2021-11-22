@@ -14,6 +14,9 @@ on:
   schedule:
     - cron: '40 3 * * *'
 
+env:
+  CACHIX_NAME: sigprof
+
 jobs:
   # The `setup` job determines the strategy for the real build job.
   setup:
@@ -95,7 +98,7 @@ jobs:
       - name: Setup Cachix
         uses: cachix/cachix-action@v10
         with:
-          name: ${{ fromJSON(secrets.CACHIX_SETTINGS_JSON).name }}
+          name: ${{ env.CACHIX_NAME }}
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
 
       - name: Checkout the project source
