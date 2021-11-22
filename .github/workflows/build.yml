@@ -1,22 +1,84 @@
 name: Build and test the Nix shell environment
 on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - master
   workflow_dispatch:
+    inputs:
+      mode:
+        description: 'Build mode: quick|default|full'
+        required: true
+        default: "default"
   schedule:
     - cron: '40 3 * * *'
 
+env:
+  CACHIX_NAME: sigprof
+
 jobs:
+  # The `setup` job determines the strategy for the real build job.
+  setup:
+    name: Setup
+    runs-on: ubuntu-latest
+    outputs:
+      strategy: ${{ steps.strategy.outputs.result }}
+    steps:
+      - id: strategy
+        name: Determine build strategy
+        uses: actions/github-script@v5.0.0
+        with:
+          script: |
+            // Matrix for the "quick" mode.
+            const quickMatrix = {
+              os: [ "ubuntu-latest" ],
+              source: [
+                { repo: "qmk/qmk_firmware", branch: "master" }
+              ],
+              nixPath: [
+                "nixpkgs=channel:nixos-21.05"
+              ]
+            };
+
+            // Matrix for the "default" and "full" modes.
+            const defaultMatrix = {
+              os: [ "ubuntu-latest", "macos-latest" ],
+              source: [
+                { repo: "qmk/qmk_firmware", branch: "master" }
+              ],
+              nixPath: [
+                "nixpkgs=channel:nixos-21.05"
+              ]
+            };
+
+            // Determine the mode from workflow inputs.
+            let mode = "default";
+            if (context.eventName == "workflow_dispatch") {
+              const payload = context.payload;
+              const inputs = payload && payload.inputs;
+              mode = inputs && inputs.mode && inputs.mode.trim() || "default";
+            } else if (context.eventName == "schedule") {
+              mode = "full";
+            }
+
+            // Determine build strategy according to the selected mode.
+            const strategy = {
+              "fail-fast": !(mode == "full"),
+              "matrix": (mode == "quick") ? quickMatrix : defaultMatrix
+            };
+
+            // Print the resulting strategy to the log.
+            core.startGroup("Job strategy:");
+            core.info(JSON.stringify(strategy, null, 2));
+            core.endGroup();
+
+            // Return the strategy as the step output in the JSON format.
+            return strategy;
+
   test:
-    strategy:
-      matrix:
-        source:
-          - { repo: "qmk/qmk_firmware", branch: "master" }
-        nixPath:
-          - nixpkgs=channel:nixos-21.05
-          # nixpkgs=channel:nixos-unstable
-        os:
-          - ubuntu-latest
-          - macos-latest
-      fail-fast: false
+    needs: setup
+    strategy: ${{ fromJSON(needs.setup.outputs.strategy) }}
 
     defaults:
       run:
@@ -25,7 +87,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - name: Install Nix
-        uses: cachix/install-nix-action@v13
+        uses: cachix/install-nix-action@v16
         with:
           nix_path: "${{ matrix.nixPath }}"
 
@@ -36,16 +98,16 @@ jobs:
       - name: Setup Cachix
         uses: cachix/cachix-action@v10
         with:
-          name: ${{ fromJSON(secrets.CACHIX_SETTINGS_JSON).name }}
+          name: ${{ env.CACHIX_NAME }}
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
 
       - name: Checkout the project source
-        uses: actions/checkout@v2.3.4
+        uses: actions/checkout@v2.4.0
         with:
           path: nix-devenv-qmk
 
       - name: Checkout the QMK firmware source
-        uses: actions/checkout@v2.3.4
+        uses: actions/checkout@v2.4.0
         with:
           path: qmk_firmware
           repository: ${{ matrix.source.repo }}
