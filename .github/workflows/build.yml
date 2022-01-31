@@ -27,7 +27,7 @@ jobs:
     steps:
       - id: strategy
         name: Determine build strategy
-        uses: actions/github-script@v5.0.0
+        uses: actions/github-script@v5.1.0
         with:
           script: |
             // Matrix for the "quick" mode.
@@ -37,7 +37,7 @@ jobs:
                 { repo: "qmk/qmk_firmware", branch: "master" }
               ],
               nixPath: [
-                "nixpkgs=channel:nixos-21.05"
+                "nixpkgs=channel:nixos-21.11"
               ]
             };
 
@@ -48,7 +48,7 @@ jobs:
                 { repo: "qmk/qmk_firmware", branch: "master" }
               ],
               nixPath: [
-                "nixpkgs=channel:nixos-21.05"
+                "nixpkgs=channel:nixos-21.11"
               ]
             };
 
