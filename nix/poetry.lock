@@ -161,7 +161,7 @@ python-versions = "*"
 
 [[package]]
 name = "milc"
-version = "1.6.5"
+version = "1.6.6"
 description = "Opinionated Batteries-Included Python 3 CLI Framework."
 category = "main"
 optional = false
@@ -431,8 +431,8 @@ mccabe = [
     {file = "mccabe-0.6.1.tar.gz", hash = "sha256:dd8d182285a0fe56bace7f45b5e7d1a6ebcbf524e8f3bd87eb0f125271b8831f"},
 ]
 milc = [
-    {file = "milc-1.6.5-py2.py3-none-any.whl", hash = "sha256:2fe233accf2ea49ac29e0cd3a333d4ad725fe296fee30d4bb3dbbfd1217f4a29"},
-    {file = "milc-1.6.5.tar.gz", hash = "sha256:b2c8d40aa17b265d93684b527cf64cee27a21e42a15ddfd1bdf060f6bf7f782d"},
+    {file = "milc-1.6.6-py2.py3-none-any.whl", hash = "sha256:5735022d25bc7aa259139ae680efa2867ce91bab769aa3b2482c63a3158120a5"},
+    {file = "milc-1.6.6.tar.gz", hash = "sha256:a4a1673718aaceefeb62c1799e48825bc6f4e56bfd8ad4a8e341a7622e6ff000"},
 ]
 nose2 = [
     {file = "nose2-0.10.0-py2.py3-none-any.whl", hash = "sha256:aa620e759f2c5018d9ba041340391913e282ecebd3c392027f1575847b093ec6"},
