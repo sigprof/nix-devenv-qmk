@@ -176,7 +176,7 @@ spinners = "*"
 
 [[package]]
 name = "nose2"
-version = "0.10.0"
+version = "0.11.0"
 description = "unittest2 with plugins, the succesor to nose"
 category = "dev"
 optional = false
@@ -188,7 +188,7 @@ six = ">=1.7"
 
 [package.extras]
 coverage_plugin = ["coverage (>=4.4.1)"]
-dev = ["Sphinx (>=1.6.5)", "sphinx-rtd-theme", "mock", "coverage"]
+dev = ["Sphinx (>=1.6.5)", "sphinx-rtd-theme", "mock", "coverage", "sphinx-issues"]
 
 [[package]]
 name = "pep8-naming"
@@ -429,8 +429,8 @@ milc = [
     {file = "milc-1.6.6.tar.gz", hash = "sha256:a4a1673718aaceefeb62c1799e48825bc6f4e56bfd8ad4a8e341a7622e6ff000"},
 ]
 nose2 = [
-    {file = "nose2-0.10.0-py2.py3-none-any.whl", hash = "sha256:aa620e759f2c5018d9ba041340391913e282ecebd3c392027f1575847b093ec6"},
-    {file = "nose2-0.10.0.tar.gz", hash = "sha256:886ba617a96de0130c54b24479bd5c2d74d5c940d40f3809c3a275511a0c4a60"},
+    {file = "nose2-0.11.0-py2.py3-none-any.whl", hash = "sha256:d37e75e3010bb4739fe6045a29d4c633ac3146cb5704ee4e4a9e4abeceb2dee3"},
+    {file = "nose2-0.11.0.tar.gz", hash = "sha256:6d208d7d6ec9f9d55c74dac81c9394bc3906dbef81a8ca5420b2b9b7f8e69de9"},
 ]
 pep8-naming = [
     {file = "pep8-naming-0.12.1.tar.gz", hash = "sha256:bb2455947757d162aa4cad55dba4ce029005cd1692f2899a21d51d8630ca7841"},
