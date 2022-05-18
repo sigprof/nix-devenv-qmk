@@ -33,7 +33,7 @@ let
         # Autodetection of jpeg2000 produces a false positive on darwin, which
         # then breaks the build.
         setupPyBuildFlags = [ "--disable-jpeg2000" ];
-        dontUsePipBuild = true;
+        format = "setuptools";
       });
       qmk = super.qmk.overridePythonAttrs(old: {
         # Allow QMK CLI to run "qmk" as a subprocess (the wrapper changes
