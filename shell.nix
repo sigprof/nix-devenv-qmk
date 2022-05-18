@@ -30,8 +30,9 @@ let
     projectDir = ./nix;
     overrides = poetry2nix.overrides.withDefaults (self: super: {
       pillow = super.pillow.overridePythonAttrs(old: {
-        buildInputs = with pkgs; (old.buildInputs or [ ])
-          ++ [ openjpeg ];
+        # Autodetection of jpeg2000 produces a false positive on darwin, which
+        # then breaks the build.
+        setupPyBuildFlags = [ "--disable-jpeg2000" ];
       });
       qmk = super.qmk.overridePythonAttrs(old: {
         # Allow QMK CLI to run "qmk" as a subprocess (the wrapper changes
