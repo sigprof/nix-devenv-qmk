@@ -29,6 +29,10 @@ let
   pythonEnv = poetry2nix.mkPoetryEnv {
     projectDir = ./nix;
     overrides = poetry2nix.overrides.withDefaults (self: super: {
+      pillow = super.pillow.overridePythonAttrs(old: {
+        buildInputs = with pkgs; (old.buildInputs or [ ])
+          ++ [ openjpeg ];
+      });
       qmk = super.qmk.overridePythonAttrs(old: {
         # Allow QMK CLI to run "qmk" as a subprocess (the wrapper changes
         # $PATH and breaks these invocations).
