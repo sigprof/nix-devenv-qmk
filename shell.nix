@@ -30,10 +30,11 @@ let
     projectDir = ./nix;
     overrides = poetry2nix.overrides.withDefaults (self: super: {
       pillow = super.pillow.overridePythonAttrs(old: {
-        # Autodetection of jpeg2000 produces a false positive on darwin, which
-        # then breaks the build.
-        setupPyBuildFlags = [ "--disable-jpeg2000" ];
-        format = "setuptools";
+        # Use preConfigure from nixpkgs to fix library detection issues and
+        # impurities which break things on Darwin.
+        propagatedBuildInputs = (old.buildInputs or []) ++ pkgs.python3.pkgs.pillow.propagatedBuildInputs;
+        buildInputs = (old.buildInputs or []) ++ pkgs.python3.pkgs.pillow.buildInputs;
+        preConfigure = (old.preConfigure or "") + pkgs.python3.pkgs.pillow.preConfigure;
       });
       qmk = super.qmk.overridePythonAttrs(old: {
         # Allow QMK CLI to run "qmk" as a subprocess (the wrapper changes
