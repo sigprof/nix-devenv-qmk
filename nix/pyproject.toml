@@ -32,6 +32,21 @@ flake8 = "*"
 pep8-naming = "*"
 yapf = "*"
 
+# These dependencies are required by the jsonschema >= 4.6.0 build system, but
+# are not detected automatically; they are also not present in the used Nixpkgs
+# snapshot, so need to be obtained through Poetry.
+hatchling = "*"
+hatch-vcs = "*"
+
+# The `pytest` module in the used Nixpkgs snapshot has an upper bound on the
+# `pluggy` dependency, which conflicts with the dependency of the `hatchling`
+# module; upgrading the `pytest` module fixes the conflict.
+pytest = "*"
+
+# Building the `tomli` module, which is in the dependency tree of `hatchling`,
+# requires a newer `flit-core` module than found in the used Nixpkgs snapshot.
+flit-core = "*"
+
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
