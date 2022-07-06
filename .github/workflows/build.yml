@@ -148,3 +148,19 @@ jobs:
       - name: Test 'qmk clean'
         if: ${{ always() && (steps.nix_shell.outcome == 'success') }}
         run: nix-shell ../nix-devenv-qmk/shell.nix --run 'qmk clean'
+
+  finish:
+    needs:
+      - setup
+      - test
+    runs-on: ubuntu-latest
+    if: always()
+    env:
+      ci_success: >-
+        ${{
+          (needs.setup.result == 'success')
+          && (needs.test.result == 'success')
+        }}
+    steps:
+      - name: Report CI status
+        run: $ci_success
