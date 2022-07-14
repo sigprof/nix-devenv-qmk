@@ -119,7 +119,7 @@ setuptools-scm = {version = ">=6.4.0", markers = "python_version > \"3\""}
 
 [[package]]
 name = "hatchling"
-version = "1.4.1"
+version = "1.5.0"
 description = "Modern, extensible Python build backend"
 category = "dev"
 optional = false
@@ -555,8 +555,8 @@ hatch-vcs = [
     {file = "hatch_vcs-0.2.0.tar.gz", hash = "sha256:9913d733b34eec9bb0345d0626ca32165a4ad2de15d1ce643c36d09ca908abff"},
 ]
 hatchling = [
-    {file = "hatchling-1.4.1-py3-none-any.whl", hash = "sha256:c26200c9ec13f58ffb48bfb067ffd6bb90ba4d9c24f1d7e932ef58aa9621477d"},
-    {file = "hatchling-1.4.1.tar.gz", hash = "sha256:13461b42876ade4f75ee5d2a2c656b288ca0aab7f048ef66657ef166996b2118"},
+    {file = "hatchling-1.5.0-py3-none-any.whl", hash = "sha256:f5b01f47d5c6b055aeb0cf05ab578ee43148db40d9dc80315b14a5b528d526a9"},
+    {file = "hatchling-1.5.0.tar.gz", hash = "sha256:9ca409a41140cc662164680b78adcd3ba77b23a945984bd9970d11fe38e86a38"},
 ]
 hid = [
     {file = "hid-1.0.5-py2-none-any.whl", hash = "sha256:11836b877e81ab68cdd3abc44f2e230f0e6146c7e17ac45c185b72e0159fc9c7"},
