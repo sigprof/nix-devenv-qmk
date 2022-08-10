@@ -29,6 +29,9 @@ let
   pythonEnv = poetry2nix.mkPoetryEnv {
     projectDir = ./nix;
     overrides = poetry2nix.overrides.withDefaults (self: super: {
+      pkgutil-resolve-name = super.pkgutil-resolve-name.overridePythonAttrs(old: {
+        nativeBuildInputs = (old.nativeBuildInputs or []) ++ [self.flit-core];
+      });
       pillow = super.pillow.overridePythonAttrs(old: {
         # Use preConfigure from nixpkgs to fix library detection issues and
         # impurities which can break the build process; this also requires
