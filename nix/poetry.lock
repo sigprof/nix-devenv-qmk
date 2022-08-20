@@ -95,6 +95,22 @@ termcolor = ">=1.1.0"
 ipython = ["ipywidgets (==7.1.0)", "IPython (==5.7.0)"]
 
 [[package]]
+name = "hatch-fancy-pypi-readme"
+version = "22.3.0"
+description = "Fancy PyPI READMEs with Hatch"
+category = "dev"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+hatchling = "*"
+tomli = {version = "*", markers = "python_version < \"3.11\""}
+
+[package.extras]
+tests = ["wheel", "pytest-icdiff", "pytest", "coverage", "build"]
+dev = ["mypy", "hatch-fancy-pypi-readme"]
+
+[[package]]
 name = "hatch-vcs"
 version = "0.2.0"
 description = "Hatch plugin for versioning with your preferred VCS"
@@ -486,7 +502,7 @@ docs = ["jaraco.tidelift (>=1.4)", "rst.linker (>=1.9)", "jaraco.packaging (>=9)
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "53fd74048c1f4a856db9279fc81dfafce39e52571cb78cbeb6797d8d95fb186f"
+content-hash = "cb3f24f99c27fd7ee2d0fb8b7ec72e17c56496874088024410bd15ed9638ec9d"
 
 [metadata.files]
 appdirs = [
@@ -523,6 +539,10 @@ flit-core = [
 halo = [
     {file = "halo-0.0.31-py2-none-any.whl", hash = "sha256:5350488fb7d2aa7c31a1344120cee67a872901ce8858f60da7946cef96c208ab"},
     {file = "halo-0.0.31.tar.gz", hash = "sha256:7b67a3521ee91d53b7152d4ee3452811e1d2a6321975137762eb3d70063cc9d6"},
+]
+hatch-fancy-pypi-readme = [
+    {file = "hatch_fancy_pypi_readme-22.3.0-py3-none-any.whl", hash = "sha256:97c7ea026fe0d305163f5380c5df1dde51051e63d0dd4a47811214a5cd4e39b4"},
+    {file = "hatch_fancy_pypi_readme-22.3.0.tar.gz", hash = "sha256:7d4651f8f07825931c92873cb51137214a938badb7a759b85c1d95bf74f86efa"},
 ]
 hatch-vcs = [
     {file = "hatch_vcs-0.2.0-py2.py3-none-any.whl", hash = "sha256:86432a0dd49acae0e69e14f285667693fcd31d9869ca21634520acc30d482f07"},
