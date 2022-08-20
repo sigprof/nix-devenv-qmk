@@ -95,6 +95,22 @@ termcolor = ">=1.1.0"
 ipython = ["ipywidgets (==7.1.0)", "IPython (==5.7.0)"]
 
 [[package]]
+name = "hatch-fancy-pypi-readme"
+version = "22.3.0"
+description = "Fancy PyPI READMEs with Hatch"
+category = "dev"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+hatchling = "*"
+tomli = {version = "*", markers = "python_version < \"3.11\""}
+
+[package.extras]
+tests = ["wheel", "pytest-icdiff", "pytest", "coverage", "build"]
+dev = ["mypy", "hatch-fancy-pypi-readme"]
+
+[[package]]
 name = "hatch-vcs"
 version = "0.2.0"
 description = "Hatch plugin for versioning with your preferred VCS"
@@ -162,7 +178,7 @@ python-versions = "*"
 
 [[package]]
 name = "jsonschema"
-version = "4.9.1"
+version = "4.13.0"
 description = "An implementation of JSON Schema validation for Python"
 category = "main"
 optional = false
@@ -486,7 +502,7 @@ docs = ["jaraco.tidelift (>=1.4)", "rst.linker (>=1.9)", "jaraco.packaging (>=9)
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "53fd74048c1f4a856db9279fc81dfafce39e52571cb78cbeb6797d8d95fb186f"
+content-hash = "cb3f24f99c27fd7ee2d0fb8b7ec72e17c56496874088024410bd15ed9638ec9d"
 
 [metadata.files]
 appdirs = [
@@ -524,6 +540,10 @@ halo = [
     {file = "halo-0.0.31-py2-none-any.whl", hash = "sha256:5350488fb7d2aa7c31a1344120cee67a872901ce8858f60da7946cef96c208ab"},
     {file = "halo-0.0.31.tar.gz", hash = "sha256:7b67a3521ee91d53b7152d4ee3452811e1d2a6321975137762eb3d70063cc9d6"},
 ]
+hatch-fancy-pypi-readme = [
+    {file = "hatch_fancy_pypi_readme-22.3.0-py3-none-any.whl", hash = "sha256:97c7ea026fe0d305163f5380c5df1dde51051e63d0dd4a47811214a5cd4e39b4"},
+    {file = "hatch_fancy_pypi_readme-22.3.0.tar.gz", hash = "sha256:7d4651f8f07825931c92873cb51137214a938badb7a759b85c1d95bf74f86efa"},
+]
 hatch-vcs = [
     {file = "hatch_vcs-0.2.0-py2.py3-none-any.whl", hash = "sha256:86432a0dd49acae0e69e14f285667693fcd31d9869ca21634520acc30d482f07"},
     {file = "hatch_vcs-0.2.0.tar.gz", hash = "sha256:9913d733b34eec9bb0345d0626ca32165a4ad2de15d1ce643c36d09ca908abff"},
@@ -549,8 +569,8 @@ iniconfig = [
     {file = "iniconfig-1.1.1.tar.gz", hash = "sha256:bc3af051d7d14b2ee5ef9969666def0cd1a000e121eaea580d4a313df4b37f32"},
 ]
 jsonschema = [
-    {file = "jsonschema-4.9.1-py3-none-any.whl", hash = "sha256:8ebad55894c002585271af2d327d99339ef566fb085d9129b69e2623867c4106"},
-    {file = "jsonschema-4.9.1.tar.gz", hash = "sha256:408c4c8ed0dede3b268f7a441784f74206380b04f93eb2d537c7befb3df3099f"},
+    {file = "jsonschema-4.13.0-py3-none-any.whl", hash = "sha256:870a61bb45050b81103faf6a4be00a0a906e06636ffcf0b84f5a2e51faf901ff"},
+    {file = "jsonschema-4.13.0.tar.gz", hash = "sha256:3776512df4f53f74e6e28fe35717b5b223c1756875486984a31bc9165e7fc920"},
 ]
 log-symbols = [
     {file = "log_symbols-0.0.14-py3-none-any.whl", hash = "sha256:4952106ff8b605ab7d5081dd2c7e6ca7374584eff7086f499c06edd1ce56dcca"},
