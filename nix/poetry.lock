@@ -48,6 +48,14 @@ optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
 [[package]]
+name = "dotty-dict"
+version = "1.3.1"
+description = "Dictionary wrapper for quick access to deeply nested keys."
+category = "main"
+optional = false
+python-versions = ">=3.5,<4.0"
+
+[[package]]
 name = "editables"
 version = "0.3"
 description = "Editable installations"
@@ -303,6 +311,14 @@ testing = ["pytest-benchmark", "pytest"]
 dev = ["tox", "pre-commit"]
 
 [[package]]
+name = "poetry-core"
+version = "1.0.8"
+description = "Poetry PEP 517 Build Backend"
+category = "dev"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+
+[[package]]
 name = "py"
 version = "1.11.0"
 description = "library with cross-python path, ini-parsing, io, code, log facilities"
@@ -398,29 +414,22 @@ python-versions = ">=3.6.0"
 
 [[package]]
 name = "qmk"
-version = "1.1.0"
+version = "1.1.1"
 description = "A program to help users work with QMK Firmware."
 category = "main"
 optional = false
 python-versions = ">=3.7"
 
 [package.dependencies]
+dotty-dict = "*"
 hid = "*"
 hjson = "*"
 jsonschema = ">=4"
 milc = ">=1.4.2"
 pillow = "*"
 pygments = "*"
+pyserial = "*"
 pyusb = "*"
-qmk-dotty-dict = "*"
-
-[[package]]
-name = "qmk-dotty-dict"
-version = "1.3.0.post1"
-description = "Dictionary wrapper for quick access to deeply nested keys."
-category = "main"
-optional = false
-python-versions = "*"
 
 [[package]]
 name = "setuptools-scm"
@@ -502,7 +511,7 @@ docs = ["jaraco.tidelift (>=1.4)", "rst.linker (>=1.9)", "jaraco.packaging (>=9)
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "cb3f24f99c27fd7ee2d0fb8b7ec72e17c56496874088024410bd15ed9638ec9d"
+content-hash = "224271b5a2453274f682c67470395f9c279f3b0862811bae0998ce85b519026d"
 
 [metadata.files]
 appdirs = [
@@ -523,6 +532,10 @@ attrs = [
 colorama = [
     {file = "colorama-0.4.5-py2.py3-none-any.whl", hash = "sha256:854bf444933e37f5824ae7bfc1e98d5bce2ebe4160d46b5edf346a89358e99da"},
     {file = "colorama-0.4.5.tar.gz", hash = "sha256:e6c6b4334fc50988a639d9b98aa429a0b57da6e17b9a44f0451f930b6967b7a4"},
+]
+dotty-dict = [
+    {file = "dotty_dict-1.3.1-py3-none-any.whl", hash = "sha256:5022d234d9922f13aa711b4950372a06a6d64cb6d6db9ba43d0ba133ebfce31f"},
+    {file = "dotty_dict-1.3.1.tar.gz", hash = "sha256:4b016e03b8ae265539757a53eba24b9bfda506fb94fbce0bee843c6f05541a15"},
 ]
 editables = [
     {file = "editables-0.3-py3-none-any.whl", hash = "sha256:ee686a8db9f5d91da39849f175ffeef094dd0e9c36d6a59a2e8c7f92a3b80020"},
@@ -668,6 +681,10 @@ pluggy = [
     {file = "pluggy-1.0.0-py2.py3-none-any.whl", hash = "sha256:74134bbf457f031a36d68416e1509f34bd5ccc019f0bcc952c7b909d06b37bd3"},
     {file = "pluggy-1.0.0.tar.gz", hash = "sha256:4224373bacce55f955a878bf9cfa763c1e360858e330072059e10bad68531159"},
 ]
+poetry-core = [
+    {file = "poetry-core-1.0.8.tar.gz", hash = "sha256:951fc7c1f8d710a94cb49019ee3742125039fc659675912ea614ac2aa405b118"},
+    {file = "poetry_core-1.0.8-py2.py3-none-any.whl", hash = "sha256:54b0fab6f7b313886e547a52f8bf52b8cf43e65b2633c65117f8755289061924"},
+]
 py = [
     {file = "py-1.11.0-py2.py3-none-any.whl", hash = "sha256:607c53218732647dff4acdfcd50cb62615cedf612e72d1724fb1a0cc6405b378"},
     {file = "py-1.11.0.tar.gz", hash = "sha256:51c75c4126074b472f746a24399ad32f6053d1b34b68d2fa41e558e6f4a98719"},
@@ -724,12 +741,8 @@ pyusb = [
     {file = "pyusb-1.2.1.tar.gz", hash = "sha256:a4cc7404a203144754164b8b40994e2849fde1cfff06b08492f12fff9d9de7b9"},
 ]
 qmk = [
-    {file = "qmk-1.1.0-py2.py3-none-any.whl", hash = "sha256:af74c508d2113389781f2c3d83115acdccd85590bc12e31eb66a4cbd4eb8a166"},
-    {file = "qmk-1.1.0.tar.gz", hash = "sha256:771577c9e68eb7fe08969bab36aeb420713a525062dce52a06eda40da8cda5e1"},
-]
-qmk-dotty-dict = [
-    {file = "qmk_dotty_dict-1.3.0.post1-py3-none-any.whl", hash = "sha256:a9cb7fc3ff9631190fee0ecac14986a0ac7b4b6892347dc9d7486a4c4ea24492"},
-    {file = "qmk_dotty_dict-1.3.0.post1.tar.gz", hash = "sha256:3b611e393660bfaa6835c68e94784bae80fe07b8490978b5ecab03a0d2fc7ea2"},
+    {file = "qmk-1.1.1-py2.py3-none-any.whl", hash = "sha256:8694300678d9be1e594a500e82bfc9fb08a8ac0983b25fcb663ddd72b4861d97"},
+    {file = "qmk-1.1.1.tar.gz", hash = "sha256:dd028e09ebcd61f8bdf8cb82929dfafc0e007d97a5a3803b45819b4641773269"},
 ]
 setuptools-scm = [
     {file = "setuptools_scm-7.0.5-py3-none-any.whl", hash = "sha256:7930f720905e03ccd1e1d821db521bff7ec2ac9cf0ceb6552dd73d24a45d3b02"},
