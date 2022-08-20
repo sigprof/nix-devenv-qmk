@@ -8,4 +8,8 @@
 # Note that this file itself is **not** named `.envrc`, because it should not
 # be used as a direnv for `nix-devenv-qmk` itself.
 
-use nix
+# Break NIX_PATH on purpose to avoid duplicate cache entries in `.direnv/`
+# (normally `use nix` creates a new entry there after any nixpkgs update, but
+# with the locked nixpkgs version used by `shell.nix` this is not actually
+# required).
+NIX_PATH=nixpkgs=/dev/null use nix
