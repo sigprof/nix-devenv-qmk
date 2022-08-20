@@ -162,7 +162,7 @@ python-versions = "*"
 
 [[package]]
 name = "jsonschema"
-version = "4.9.1"
+version = "4.13.0"
 description = "An implementation of JSON Schema validation for Python"
 category = "main"
 optional = false
@@ -549,8 +549,8 @@ iniconfig = [
     {file = "iniconfig-1.1.1.tar.gz", hash = "sha256:bc3af051d7d14b2ee5ef9969666def0cd1a000e121eaea580d4a313df4b37f32"},
 ]
 jsonschema = [
-    {file = "jsonschema-4.9.1-py3-none-any.whl", hash = "sha256:8ebad55894c002585271af2d327d99339ef566fb085d9129b69e2623867c4106"},
-    {file = "jsonschema-4.9.1.tar.gz", hash = "sha256:408c4c8ed0dede3b268f7a441784f74206380b04f93eb2d537c7befb3df3099f"},
+    {file = "jsonschema-4.13.0-py3-none-any.whl", hash = "sha256:870a61bb45050b81103faf6a4be00a0a906e06636ffcf0b84f5a2e51faf901ff"},
+    {file = "jsonschema-4.13.0.tar.gz", hash = "sha256:3776512df4f53f74e6e28fe35717b5b223c1756875486984a31bc9165e7fc920"},
 ]
 log-symbols = [
     {file = "log_symbols-0.0.14-py3-none-any.whl", hash = "sha256:4952106ff8b605ab7d5081dd2c7e6ca7374584eff7086f499c06edd1ce56dcca"},
