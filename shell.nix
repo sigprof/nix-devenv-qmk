@@ -49,15 +49,6 @@ let
   pythonEnv = poetry2nix.mkPoetryEnv {
     projectDir = ./nix;
     overrides = poetry2nix.overrides.withDefaults (self: super: {
-      jsonschema =
-        if lib.versionAtLeast super.jsonschema.version "4.11.0"
-        then
-          super.jsonschema.overridePythonAttrs (old: {
-            nativeBuildInputs = (old.nativeBuildInputs or []) ++ [
-              self.hatch-fancy-pypi-readme
-            ];
-          })
-        else super.jsonschema;
       pillow = super.pillow.overridePythonAttrs(old: {
         # Use preConfigure from nixpkgs to fix library detection issues and
         # impurities which can break the build process; this also requires
