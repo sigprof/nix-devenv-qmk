@@ -49,15 +49,6 @@ let
   pythonEnv = poetry2nix.mkPoetryEnv {
     projectDir = ./nix;
     overrides = poetry2nix.overrides.withDefaults (self: super: {
-      dotty-dict =
-        if lib.versionAtLeast super.dotty-dict.version "1.3.1"
-        then
-          super.dotty-dict.overridePythonAttrs (old: {
-            nativeBuildInputs = (old.nativeBuildInputs or []) ++ [
-              self.poetry-core
-            ];
-          })
-        else super.dotty-dict;
       jsonschema =
         if lib.versionAtLeast super.jsonschema.version "4.11.0"
         then
