@@ -511,7 +511,7 @@ docs = ["jaraco.tidelift (>=1.4)", "rst.linker (>=1.9)", "jaraco.packaging (>=9)
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "224271b5a2453274f682c67470395f9c279f3b0862811bae0998ce85b519026d"
+content-hash = "71855d16c0f315ff383322272ddfca2b4917dbba9fa5ca1863b3bd537e35fee1"
 
 [metadata.files]
 appdirs = [
