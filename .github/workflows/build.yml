@@ -117,6 +117,13 @@ jobs:
       - name: Update submodules
         run: make git-submodule
 
+      - name: Configure the 'upstream' remote
+        run: git remote add upstream https://github.com/qmk/qmk_firmware
+
+      - name: Configure the udev rules
+        if: ${{ runner.os == 'Linux' }}
+        run: sudo install -o root -g root -m 0644 util/udev/50-qmk.rules /etc/udev/rules.d/
+
       - name: Build the Nix shell environment
         id: nix_shell
         run: nix-shell ../nix-devenv-qmk/shell.nix --show-trace --run 'true'
