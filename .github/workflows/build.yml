@@ -128,6 +128,10 @@ jobs:
         id: nix_shell
         run: nix-shell ../nix-devenv-qmk/shell.nix --show-trace --run 'true'
 
+      - name: Test 'qmk doctor'
+        if: ${{ always() && (steps.nix_shell.outcome == 'success') }}
+        run: nix-shell ../nix-devenv-qmk/shell.nix --run 'qmk doctor'
+
       - name: Test AVR build using 'make'
         if: ${{ always() && (steps.nix_shell.outcome == 'success') }}
         run: nix-shell ../nix-devenv-qmk/shell.nix --run 'make planck/rev5:default'
