@@ -61,6 +61,18 @@ let
         # Allow QMK CLI to run "qmk" as a subprocess (the wrapper changes
         # $PATH and breaks these invocations).
         dontWrapPythonPrograms = true;
+
+        # Fix "qmk setup" to use the Python interpreter from the environment
+        # when invoking "qmk doctor" (sys.executable gets its value from
+        # $NIX_PYTHONEXECUTABLE, which is set by the "qmk" wrapper from the
+        # Python environment, so "qmk doctor" then runs with the proper
+        # $NIX_PYTHONPATH too, because sys.executable actually points to
+        # another wrapper from the same Python environment).
+        postPatch = ''
+          substituteInPlace qmk_cli/subcommands/setup.py \
+            --replace "[Path(sys.argv[0]).as_posix()" \
+              "[Path(sys.executable).as_posix(), Path(sys.argv[0]).as_posix()"
+        '';
       });
     });
   };

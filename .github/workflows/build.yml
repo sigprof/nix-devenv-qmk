@@ -82,6 +82,7 @@ jobs:
 
     defaults:
       run:
+        shell: bash
         working-directory: qmk_firmware
 
     runs-on: ${{ matrix.os }}
@@ -131,6 +132,15 @@ jobs:
       - name: Test 'qmk doctor'
         if: ${{ always() && (steps.nix_shell.outcome == 'success') }}
         run: nix-shell ../nix-devenv-qmk/shell.nix --run 'qmk doctor'
+
+      - name: Test 'qmk setup'
+        if: ${{ always() && (steps.nix_shell.outcome == 'success') }}
+        run: |
+          # Test 'qmk setup'
+          # 'qmk setup' does not return the exit code of 'qmk doctor',
+          # therefore grepping the text output is needed.
+          nix-shell ../nix-devenv-qmk/shell.nix --run 'qmk setup' 2>&1 | tee qmk-setup.log
+          grep -q "QMK is ready to go" qmk-setup.log
 
       - name: Test AVR build using 'make'
         if: ${{ always() && (steps.nix_shell.outcome == 'success') }}
