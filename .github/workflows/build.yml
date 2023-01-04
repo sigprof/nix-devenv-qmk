@@ -132,6 +132,10 @@ jobs:
         if: ${{ always() && (steps.nix_shell.outcome == 'success') }}
         run: nix-shell ../nix-devenv-qmk/shell.nix --run 'qmk doctor'
 
+      - name: Test 'qmk setup'
+        if: ${{ always() && (steps.nix_shell.outcome == 'success') }}
+        run: nix-shell ../nix-devenv-qmk/shell.nix --run 'qmk setup'
+
       - name: Test AVR build using 'make'
         if: ${{ always() && (steps.nix_shell.outcome == 'success') }}
         run: nix-shell ../nix-devenv-qmk/shell.nix --run 'make planck/rev5:default'
