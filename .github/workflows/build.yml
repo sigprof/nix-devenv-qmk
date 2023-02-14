@@ -27,7 +27,7 @@ jobs:
     steps:
       - id: strategy
         name: Determine build strategy
-        uses: actions/github-script@v6.3.3
+        uses: actions/github-script@v6.4.0
         with:
           script: |
             // Matrix for the "quick" mode.
