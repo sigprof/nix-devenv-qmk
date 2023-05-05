@@ -448,14 +448,14 @@ files = [
 
 [[package]]
 name = "qmk"
-version = "1.1.1"
+version = "1.1.2"
 description = "A program to help users work with QMK Firmware."
 category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "qmk-1.1.1-py2.py3-none-any.whl", hash = "sha256:8694300678d9be1e594a500e82bfc9fb08a8ac0983b25fcb663ddd72b4861d97"},
-    {file = "qmk-1.1.1.tar.gz", hash = "sha256:dd028e09ebcd61f8bdf8cb82929dfafc0e007d97a5a3803b45819b4641773269"},
+    {file = "qmk-1.1.2-py2.py3-none-any.whl", hash = "sha256:c5a8dd46d7c3e474d5140ce89f117285d65b3eda0fed0a5d8fd554afbd71cf56"},
+    {file = "qmk-1.1.2.tar.gz", hash = "sha256:f871f88f1a0ca31ba31a009d716417e46bc538a4f8df8ede6a801c9076c22998"},
 ]
 
 [package.dependencies]
