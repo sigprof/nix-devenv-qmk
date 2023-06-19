@@ -209,13 +209,13 @@ files = [
 
 [[package]]
 name = "milc"
-version = "1.6.6"
+version = "1.6.8"
 description = "Opinionated Batteries-Included Python 3 CLI Framework."
 optional = false
 python-versions = "*"
 files = [
-    {file = "milc-1.6.6-py2.py3-none-any.whl", hash = "sha256:5735022d25bc7aa259139ae680efa2867ce91bab769aa3b2482c63a3158120a5"},
-    {file = "milc-1.6.6.tar.gz", hash = "sha256:a4a1673718aaceefeb62c1799e48825bc6f4e56bfd8ad4a8e341a7622e6ff000"},
+    {file = "milc-1.6.8-py2.py3-none-any.whl", hash = "sha256:d72282b5a6cdba4498b31fe26710e1cafcd07086e7f5201a7ba001fbf7b2ce81"},
+    {file = "milc-1.6.8.tar.gz", hash = "sha256:a2ac93a771c1ff2304a1a5d7c28d13b07986d39e8099adb1408c8e62c46bdcde"},
 ]
 
 [package.dependencies]
