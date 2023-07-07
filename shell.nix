@@ -85,6 +85,7 @@ let
             pkgs.rustPlatform.cargoSetupHook
             pkgs.rustPlatform.maturinBuildHook
           ];
+          buildInputs = lib.optionals stdenv.isDarwin [ libiconv ];
         });
       qmk = super.qmk.overridePythonAttrs(old: {
         # Allow QMK CLI to run "qmk" as a subprocess (the wrapper changes
