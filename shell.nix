@@ -29,6 +29,20 @@ let
   pythonEnv = poetry2nix.mkPoetryEnv {
     projectDir = ./nix;
     overrides = poetry2nix.overrides.withDefaults (self: super: {
+      jsonschema = super.jsonschema.overridePythonAttrs(old: {
+        postPatch = ''
+          sed -i "/Topic/d" pyproject.toml
+        '';
+      });
+      jsonschema-specifications = super.jsonschema-specifications.overridePythonAttrs(old: {
+        nativeBuildInputs = (old.nativeBuildInputs or []) ++ [
+          self.hatchling
+          self.hatch-vcs
+        ];
+        postPatch = ''
+          sed -i "/Topic/d" pyproject.toml
+        '';
+      });
       pillow = super.pillow.overridePythonAttrs(old: {
         # Use preConfigure from nixpkgs to fix library detection issues and
         # impurities which can break the build process; this also requires
@@ -45,6 +59,34 @@ let
           })
         ];
       });
+      referencing = super.referencing.overridePythonAttrs(old: {
+        nativeBuildInputs = (old.nativeBuildInputs or []) ++ [
+          self.hatchling
+          self.hatch-vcs
+        ];
+        postPatch = ''
+          sed -i "/Topic/d" pyproject.toml
+        '';
+      });
+      rpds-py = let
+        getCargoHash = version: {
+          "0.8.8" = "sha256-jg9oos4wqewIHe31c3DixIp6fssk742kqt4taWyOq4U=";
+        }.${version} or (
+          lib.warn "Unknown rpds-py version: '${version}'. Please update getCargoHash." lib.fakeHash
+        );
+      in
+        super.rpds-py.overridePythonAttrs(old: {
+          cargoDeps = pkgs.rustPlatform.fetchCargoTarball {
+            inherit (old) src;
+            name = "${old.pname}-${old.version}";
+            hash = getCargoHash old.version;
+          };
+          nativeBuildInputs = (old.nativeBuildInputs or []) ++ [
+            pkgs.rustPlatform.cargoSetupHook
+            pkgs.rustPlatform.maturinBuildHook
+          ];
+          buildInputs = lib.optionals stdenv.isDarwin [ libiconv ];
+        });
       qmk = super.qmk.overridePythonAttrs(old: {
         # Allow QMK CLI to run "qmk" as a subprocess (the wrapper changes
         # $PATH and breaks these invocations).
