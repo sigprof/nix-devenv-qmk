@@ -245,13 +245,13 @@ types-colorama = "*"
 
 [[package]]
 name = "nose2"
-version = "0.14.0"
+version = "0.14.1"
 description = "unittest with plugins"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "nose2-0.14.0-py3-none-any.whl", hash = "sha256:86993e9243c744df29c1ec237aecee33e2f59abb4bdd25a313f2e806b99228a1"},
-    {file = "nose2-0.14.0.tar.gz", hash = "sha256:5c28d770a0b9a702862bd6c3755ba2cd2f7994dd518c982e5ce298d7f37466a4"},
+    {file = "nose2-0.14.1-py3-none-any.whl", hash = "sha256:dfbf0d90c98b8d7bbf47d7721c7554ffcca86828ec074c985bb6ecc83c445a4e"},
+    {file = "nose2-0.14.1.tar.gz", hash = "sha256:7f8f03a21c9de2c33015933afcef72bf8e4a2d5dfec3b40092287de6e41b093a"},
 ]
 
 [package.extras]
