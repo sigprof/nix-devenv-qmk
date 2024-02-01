@@ -226,13 +226,13 @@ files = [
 
 [[package]]
 name = "milc"
-version = "1.6.8"
+version = "1.7.0"
 description = "Opinionated Batteries-Included Python 3 CLI Framework."
 optional = false
 python-versions = "*"
 files = [
-    {file = "milc-1.6.8-py2.py3-none-any.whl", hash = "sha256:d72282b5a6cdba4498b31fe26710e1cafcd07086e7f5201a7ba001fbf7b2ce81"},
-    {file = "milc-1.6.8.tar.gz", hash = "sha256:a2ac93a771c1ff2304a1a5d7c28d13b07986d39e8099adb1408c8e62c46bdcde"},
+    {file = "milc-1.7.0-py2.py3-none-any.whl", hash = "sha256:742e4fbd352d2a2ca59495d4c39a148e41204ab8c5e1a348cb52a580f7dc01d4"},
+    {file = "milc-1.7.0.tar.gz", hash = "sha256:f10a5e51da0e592c08f41b4f55faaee84cc3c70e27009dd3383c9e755c1d81d4"},
 ]
 
 [package.dependencies]
@@ -241,6 +241,7 @@ argcomplete = "*"
 colorama = "*"
 halo = "*"
 spinners = "*"
+types-colorama = "*"
 
 [[package]]
 name = "nose2"
@@ -630,6 +631,17 @@ python-versions = ">=3.7"
 files = [
     {file = "tomli-2.0.1-py3-none-any.whl", hash = "sha256:939de3e7a6161af0c887ef91b7d41a53e7c5a1ca976325f429cb46ea9bc30ecc"},
     {file = "tomli-2.0.1.tar.gz", hash = "sha256:de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f"},
+]
+
+[[package]]
+name = "types-colorama"
+version = "0.4.15.20240106"
+description = "Typing stubs for colorama"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "types-colorama-0.4.15.20240106.tar.gz", hash = "sha256:49096b4c4cbfcaa11699a0470c36e4f5631f193fb980188e013ea64445d35656"},
+    {file = "types_colorama-0.4.15.20240106-py3-none-any.whl", hash = "sha256:18294bc18f60dc0b4895de8119964a5d895f5e180c2d1308fdd33009c0fa0f38"},
 ]
 
 [[package]]
