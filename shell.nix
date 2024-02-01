@@ -28,7 +28,7 @@ let
   # files if the requirements*.txt files change
   pythonEnv = poetry2nix.mkPoetryEnv {
     projectDir = ./nix;
-    overrides = poetry2nix.overrides.withDefaults (self: super: {
+    overrides = [ poetry2nix.defaultPoetryOverrides (self: super: {
       pillow = super.pillow.overridePythonAttrs(old: {
         # Use preConfigure from nixpkgs to fix library detection issues and
         # impurities which can break the build process; this also requires
@@ -68,7 +68,7 @@ let
               "[Path(sys.executable).as_posix(), Path(sys.argv[0]).as_posix()"
         '';
       });
-    });
+    }) ];
   };
 in
 mkShell {
