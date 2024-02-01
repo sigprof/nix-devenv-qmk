@@ -36,14 +36,6 @@ let
         propagatedBuildInputs = (old.buildInputs or []) ++ pkgs.python3.pkgs.pillow.propagatedBuildInputs;
         buildInputs = (old.buildInputs or []) ++ pkgs.python3.pkgs.pillow.buildInputs;
         preConfigure = (old.preConfigure or "") + pkgs.python3.pkgs.pillow.preConfigure;
-
-        # https://github.com/nix-community/poetry2nix/issues/1139
-        patches = (old.patches or []) ++ lib.optionals (old.version == "9.5.0") [
-          (pkgs.fetchpatch  {
-            url = "https://github.com/python-pillow/Pillow/commit/0ec0a89ead648793812e11739e2a5d70738c6be5.diff";
-            sha256 = "sha256-rZfk+OXZU6xBpoumIW30E80gRsox/Goa3hMDxBUkTY0=";
-          })
-        ];
       });
       qmk = super.qmk.overridePythonAttrs(old: {
         # Allow QMK CLI to run "qmk" as a subprocess (the wrapper changes
