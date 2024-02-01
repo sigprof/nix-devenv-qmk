@@ -29,14 +29,6 @@ let
   pythonEnv = poetry2nix.mkPoetryEnv {
     projectDir = ./nix;
     overrides = [ poetry2nix.defaultPoetryOverrides (self: super: {
-      pillow = super.pillow.overridePythonAttrs(old: {
-        # Use preConfigure from nixpkgs to fix library detection issues and
-        # impurities which can break the build process; this also requires
-        # adding propagatedBuildInputs and buildInputs from the same source.
-        propagatedBuildInputs = (old.buildInputs or []) ++ pkgs.python3.pkgs.pillow.propagatedBuildInputs;
-        buildInputs = (old.buildInputs or []) ++ pkgs.python3.pkgs.pillow.buildInputs;
-        preConfigure = (old.preConfigure or "") + pkgs.python3.pkgs.pillow.preConfigure;
-      });
       rpds-py = let
         getCargoHash = version: {
           "0.17.1" = "sha256-sFutrKLa2ISxtUN7hmw2P02nl4SM6Hn4yj1kkXrNWmI=";
