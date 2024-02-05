@@ -29,20 +29,6 @@ let
   pythonEnv = poetry2nix.mkPoetryEnv {
     projectDir = ./nix;
     overrides = [ poetry2nix.defaultPoetryOverrides (self: super: {
-      rpds-py = let
-        getCargoHash = version: {
-          "0.17.1" = "sha256-sFutrKLa2ISxtUN7hmw2P02nl4SM6Hn4yj1kkXrNWmI=";
-        }.${version} or (
-          lib.warn "Unknown rpds-py version: '${version}'. Please update getCargoHash." lib.fakeHash
-        );
-      in
-        super.rpds-py.overridePythonAttrs(old: {
-          cargoDeps = pkgs.rustPlatform.fetchCargoTarball {
-            inherit (old) src;
-            name = "${old.pname}-${old.version}";
-            hash = getCargoHash old.version;
-          };
-        });
       qmk = super.qmk.overridePythonAttrs(old: {
         # Allow QMK CLI to run "qmk" as a subprocess (the wrapper changes
         # $PATH and breaks these invocations).
