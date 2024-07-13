@@ -37,7 +37,7 @@ jobs:
                 { repo: "qmk/qmk_firmware", branch: "master" }
               ],
               nixPath: [
-                "nixpkgs=channel:nixos-23.11"
+                "nixpkgs=channel:nixos-24.05"
               ]
             };
 
@@ -48,7 +48,7 @@ jobs:
                 { repo: "qmk/qmk_firmware", branch: "master" }
               ],
               nixPath: [
-                "nixpkgs=channel:nixos-23.11"
+                "nixpkgs=channel:nixos-24.05"
               ]
             };
 
