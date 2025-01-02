@@ -4,6 +4,7 @@ let
 in
 # However, if you want to override Niv's inputs, this will let you do that.
 { pkgs ? import sources.nixpkgs { }
+, pkgs-for-clang-format ? import sources.nixpkgs-clang-format { }
 , poetry2nix ? pkgs.callPackage (import sources.poetry2nix) { }
 , avr ? true
 , arm ? true
@@ -52,7 +53,7 @@ in
 mkShell {
   name = "qmk-firmware";
 
-  buildInputs = [ clang-tools_14 dfu-programmer dfu-util diffutils git pythonEnv niv ]
+  buildInputs = [ pkgs-for-clang-format.clang-tools_11 dfu-programmer dfu-util diffutils git pythonEnv niv ]
     ++ lib.optional avr [
       pkgsCross.avr.buildPackages.binutils
       pkgsCross.avr.buildPackages.gcc8
