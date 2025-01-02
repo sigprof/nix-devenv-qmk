@@ -229,18 +229,18 @@ types-colorama = "*"
 
 [[package]]
 name = "nose2"
-version = "0.14.1"
+version = "0.15.1"
 description = "unittest with plugins"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "nose2-0.14.1-py3-none-any.whl", hash = "sha256:dfbf0d90c98b8d7bbf47d7721c7554ffcca86828ec074c985bb6ecc83c445a4e"},
-    {file = "nose2-0.14.1.tar.gz", hash = "sha256:7f8f03a21c9de2c33015933afcef72bf8e4a2d5dfec3b40092287de6e41b093a"},
+    {file = "nose2-0.15.1-py3-none-any.whl", hash = "sha256:564450c0c4f1602dfe171902ceb4726cc56658af7a620ae1826f1ffc86b09a86"},
+    {file = "nose2-0.15.1.tar.gz", hash = "sha256:36770f519df5becd3cbfe0bee4abbfbf9b9f6b4eb4e03361d282b7efcfc4f0df"},
 ]
 
 [package.extras]
 coverage-plugin = ["coverage"]
-dev = ["Sphinx", "sphinx-issues", "sphinx-rtd-theme"]
+dev = ["sphinx", "sphinx-issues", "sphinx-rtd-theme"]
 
 [[package]]
 name = "pep8-naming"
