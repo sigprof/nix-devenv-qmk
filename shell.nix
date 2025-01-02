@@ -30,6 +30,17 @@ let
   pythonEnv = poetry2nix.mkPoetryEnv {
     projectDir = ./nix;
     overrides = [ poetry2nix.defaultPoetryOverrides (self: super: {
+      argcomplete =
+        if lib.versionAtLeast super.argcomplete.version "3.5.3"
+        then
+          super.argcomplete.overridePythonAttrs
+            (old: {
+              nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [
+                self.hatchling
+                self.hatch-vcs
+              ];
+            })
+        else super.argcomplete;
       qmk = super.qmk.overridePythonAttrs(old: {
         # Allow QMK CLI to run "qmk" as a subprocess (the wrapper changes
         # $PATH and breaks these invocations).
