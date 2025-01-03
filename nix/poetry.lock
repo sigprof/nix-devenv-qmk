@@ -187,20 +187,20 @@ files = [
 
 [[package]]
 name = "milc"
-version = "1.8.0"
+version = "1.9.0"
 description = "Opinionated Batteries-Included Python 3 CLI Framework."
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "milc-1.8.0-py2.py3-none-any.whl", hash = "sha256:faee16fe92ce13eb1b0b4e24ac5b5003d7234880a8d21e4210016d70512bc921"},
-    {file = "milc-1.8.0.tar.gz", hash = "sha256:cabe658de07ab97f937c7672b8a604cc825174c28d66d3afd047a9b4b2770bbe"},
+    {file = "milc-1.9.0-py2.py3-none-any.whl", hash = "sha256:2a599ccc554d0af3cbf23144b57edf69ed25d88bf91b6cfe5dda98355352d94b"},
+    {file = "milc-1.9.0.tar.gz", hash = "sha256:c02ac9a23148a1fb4f339022e929a658ab2c8fe8c1cad10a9bb1226358cc71ce"},
 ]
 
 [package.dependencies]
-appdirs = "*"
 argcomplete = "*"
 colorama = "*"
 halo = "*"
+platformdirs = "*"
 spinners = "*"
 types-colorama = "*"
 
