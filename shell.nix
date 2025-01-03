@@ -30,6 +30,18 @@ let
   pythonEnv = poetry2nix.mkPoetryEnv {
     projectDir = ./nix;
     overrides = [
+      # Some overrides (e.g., the ones which set preferWheel) must be applied
+      # before the default overrides:
+      # https://github.com/nix-community/poetry2nix/pull/899
+      (self: super: {
+        attrs = super.attrs.override {
+          # attrs >= 24.3.0 requires hatchling >= 1.26.0 to build from source:
+          #   https://github.com/python-attrs/attrs/pull/1377
+          #   https://github.com/pypa/hatch/issues/1715
+          preferWheel = true;
+        };
+      })
+
       poetry2nix.defaultPoetryOverrides
 
       # Apply most overrides after the default overrides, so that things like
