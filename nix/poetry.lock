@@ -400,13 +400,13 @@ files = [
 
 [[package]]
 name = "qmk"
-version = "1.1.5"
+version = "1.1.6"
 description = "A program to help users work with QMK Firmware."
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=3.9"
 files = [
-    {file = "qmk-1.1.5-py2.py3-none-any.whl", hash = "sha256:9c16fa2ad9b279ce9cc121a5462f02637611c6f54c49f9f2cac8ba2898f35b94"},
-    {file = "qmk-1.1.5.tar.gz", hash = "sha256:2efe3c752230c6ba24b8719c3b6e85a5644bf8f7d0dd237757eda9b7b7e60b11"},
+    {file = "qmk-1.1.6-py2.py3-none-any.whl", hash = "sha256:4819d42fe26141769a7c2060210450f015f8d21ab94c6efa63416c152a3051f0"},
+    {file = "qmk-1.1.6.tar.gz", hash = "sha256:dc436cdbabf2f8cec6dbad453de3832be01bac8e7e9c19075c29866ee22a8b50"},
 ]
 
 [package.dependencies]
@@ -414,7 +414,7 @@ dotty-dict = "*"
 hid = "*"
 hjson = "*"
 jsonschema = ">=4"
-milc = ">=1.6.8"
+milc = ">=1.9.0"
 pillow = "*"
 pygments = "*"
 pyserial = "*"
