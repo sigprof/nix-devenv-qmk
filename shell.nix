@@ -41,6 +41,20 @@ let
               ];
             })
         else super.argcomplete;
+      rpds-py = let
+        getCargoHash = version: {
+          "0.22.3" = "sha256-m01OB4CqDowlTAiDQx6tJ7SeP3t+EtS9UZ7Jad6Ccvc=";
+        }.${version} or (
+          lib.warn "Unknown rpds-py version: '${version}'. Please update getCargoHash." lib.fakeHash
+        );
+      in
+        super.rpds-py.overridePythonAttrs(old: {
+          cargoDeps = pkgs.rustPlatform.fetchCargoTarball {
+            inherit (old) src;
+            name = "${old.pname}-${old.version}";
+            hash = getCargoHash old.version;
+          };
+        });
       qmk = super.qmk.overridePythonAttrs(old: {
         # Allow QMK CLI to run "qmk" as a subprocess (the wrapper changes
         # $PATH and breaks these invocations).
