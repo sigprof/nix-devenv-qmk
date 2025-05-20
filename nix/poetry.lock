@@ -112,14 +112,14 @@ ipython = ["IPython (==5.7.0)", "ipywidgets (==7.1.0)"]
 
 [[package]]
 name = "hid"
-version = "1.0.6"
+version = "1.0.7"
 description = "ctypes bindings for hidapi"
 optional = false
 python-versions = "*"
 groups = ["main"]
 files = [
-    {file = "hid-1.0.6-py3-none-any.whl", hash = "sha256:60446054aec54a767d9a4e97920761f41809a055c6d51c54879e37a706dcb588"},
-    {file = "hid-1.0.6.tar.gz", hash = "sha256:48d764d7ae9746ba123b96dbf457893ca80268b7791c4b1d2e051310eeb83860"},
+    {file = "hid-1.0.7-py3-none-any.whl", hash = "sha256:8a4f1b081202599018564c4fbc4805d9b97b9c2495f2be177a1ed9600940436d"},
+    {file = "hid-1.0.7.tar.gz", hash = "sha256:3f809e292ab52c4435ad1442c8ef205be4c9ca4eeb80fb47c7d98e0c75527b2a"},
 ]
 
 [[package]]
