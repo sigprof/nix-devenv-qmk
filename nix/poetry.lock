@@ -423,14 +423,14 @@ files = [
 
 [[package]]
 name = "qmk"
-version = "1.1.6"
+version = "1.1.8"
 description = "A program to help users work with QMK Firmware."
 optional = false
 python-versions = ">=3.9"
 groups = ["main"]
 files = [
-    {file = "qmk-1.1.6-py2.py3-none-any.whl", hash = "sha256:4819d42fe26141769a7c2060210450f015f8d21ab94c6efa63416c152a3051f0"},
-    {file = "qmk-1.1.6.tar.gz", hash = "sha256:dc436cdbabf2f8cec6dbad453de3832be01bac8e7e9c19075c29866ee22a8b50"},
+    {file = "qmk-1.1.8-py2.py3-none-any.whl", hash = "sha256:906150909f7db948c9f131f095b275fd66e1e6ce0e78410607ca02e1efa02de7"},
+    {file = "qmk-1.1.8.tar.gz", hash = "sha256:0b426b6bf20aeb5b67806b2e127303e26c9245cfe265581d6046cc5edc29059d"},
 ]
 
 [package.dependencies]
@@ -443,7 +443,6 @@ pillow = "*"
 pygments = "*"
 pyserial = "*"
 pyusb = "*"
-setuptools = ">=45"
 
 [[package]]
 name = "referencing"
@@ -573,27 +572,6 @@ files = [
     {file = "rpds_py-0.22.3-pp39-pypy39_pp73-win_amd64.whl", hash = "sha256:5246b14ca64a8675e0a7161f7af68fe3e910e6b90542b4bfb5439ba752191df6"},
     {file = "rpds_py-0.22.3.tar.gz", hash = "sha256:e32fee8ab45d3c2db6da19a5323bc3362237c8b653c70194414b892fd06a080d"},
 ]
-
-[[package]]
-name = "setuptools"
-version = "80.8.0"
-description = "Easily download, build, install, upgrade, and uninstall Python packages"
-optional = false
-python-versions = ">=3.9"
-groups = ["main"]
-files = [
-    {file = "setuptools-80.8.0-py3-none-any.whl", hash = "sha256:95a60484590d24103af13b686121328cc2736bee85de8936383111e421b9edc0"},
-    {file = "setuptools-80.8.0.tar.gz", hash = "sha256:49f7af965996f26d43c8ae34539c8d99c5042fbff34302ea151eaa9c207cd257"},
-]
-
-[package.extras]
-check = ["pytest-checkdocs (>=2.4)", "pytest-ruff (>=0.2.1) ; sys_platform != \"cygwin\"", "ruff (>=0.8.0) ; sys_platform != \"cygwin\""]
-core = ["importlib_metadata (>=6) ; python_version < \"3.10\"", "jaraco.functools (>=4)", "jaraco.text (>=3.7)", "more_itertools", "more_itertools (>=8.8)", "packaging (>=24.2)", "platformdirs (>=4.2.2)", "tomli (>=2.0.1) ; python_version < \"3.11\"", "wheel (>=0.43.0)"]
-cover = ["pytest-cov"]
-doc = ["furo", "jaraco.packaging (>=9.3)", "jaraco.tidelift (>=1.4)", "pygments-github-lexers (==0.0.5)", "pyproject-hooks (!=1.1)", "rst.linker (>=1.9)", "sphinx (>=3.5)", "sphinx-favicon", "sphinx-inline-tabs", "sphinx-lint", "sphinx-notfound-page (>=1,<2)", "sphinx-reredirects", "sphinxcontrib-towncrier", "towncrier (<24.7)"]
-enabler = ["pytest-enabler (>=2.2)"]
-test = ["build[virtualenv] (>=1.0.3)", "filelock (>=3.4.0)", "ini2toml[lite] (>=0.14)", "jaraco.develop (>=7.21) ; python_version >= \"3.9\" and sys_platform != \"cygwin\"", "jaraco.envs (>=2.2)", "jaraco.path (>=3.7.2)", "jaraco.test (>=5.5)", "packaging (>=24.2)", "pip (>=19.1)", "pyproject-hooks (!=1.1)", "pytest (>=6,!=8.1.*)", "pytest-home (>=0.5)", "pytest-perf ; sys_platform != \"cygwin\"", "pytest-subprocess", "pytest-timeout", "pytest-xdist (>=3)", "tomli-w (>=1.0.0)", "virtualenv (>=13.0.0)", "wheel (>=0.44.0)"]
-type = ["importlib_metadata (>=7.0.2) ; python_version < \"3.10\"", "jaraco.develop (>=7.21) ; sys_platform != \"cygwin\"", "mypy (==1.14.*)", "pytest-mypy"]
 
 [[package]]
 name = "six"
