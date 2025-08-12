@@ -113,12 +113,12 @@ jobs:
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
 
       - name: Checkout the project source
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v5.0.0
         with:
           path: nix-devenv-qmk
 
       - name: Checkout the QMK firmware source
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v5.0.0
         with:
           path: qmk_firmware
           repository: ${{ matrix.source.repo }}
